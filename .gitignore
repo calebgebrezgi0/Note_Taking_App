@@ -1,8 +1,8 @@
-   .venv/
-   venv/
-   __pycache__/
-   *.pyc
-   .pytest_cache/
-   .vscode/
-   .DS_Store
-   notes.json
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+.DS_Store
+notes.json

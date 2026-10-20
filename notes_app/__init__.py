@@ -1,0 +1,1 @@
+"""Note Taking App Package: Classes and managing notes."""
