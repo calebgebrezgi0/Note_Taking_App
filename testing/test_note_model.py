@@ -5,6 +5,7 @@ Purpose: Testing for the note class
 Date: 10-20-2026
 """
 
+import pytest
 
 from notes_app.note_model import Note
 
@@ -14,3 +15,8 @@ def test_note_stores_title_and_body():
     note = Note("Homework", "Chapter 1, Chapter 2")
     assert note.title == "Homework"
     assert note.body == "Chapter 1, Chapter 2"
+
+def test_empty_title_raises_error():
+    """A title with only spaces is not accepted."""
+    with pytest.raises(ValueError):
+        Note("   ")
