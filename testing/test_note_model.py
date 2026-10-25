@@ -20,3 +20,10 @@ def test_empty_title_raises_error():
     """A title with only spaces is not accepted."""
     with pytest.raises(ValueError):
         Note("   ")
+
+def test_note_to_dict_and_back():
+    """Notes that are turned into a dictionary can be recreated with the same data."""
+    note = Note("Homework", "Chapter 1")
+    rebuilt = Note.from_dict(note.to_dict())
+    assert rebuilt.title == note.title
+    assert rebuilt.body == note.body
