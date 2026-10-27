@@ -30,3 +30,15 @@ def test_empty_title_error():
     manager = NoteManager()
     with pytest.raises(ValueError):
         manager.add_note("   ")
+
+def test_save_and_load(tmp_path):
+    """Notes saved by one manager can be loaded by another manager."""
+    filename = tmp_path / "notes.json"
+    manager = NoteManager()
+    manager.add_note("Homework", "Chapter 1")
+    manager.save(filename)
+
+    new_manager = NoteManager()
+    new_manager.load(filename)
+    assert len(new_manager.list_notes()) == 1
+    assert new_manager.list_notes()[0].title == "Homework"

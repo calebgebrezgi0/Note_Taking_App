@@ -6,6 +6,7 @@ Date: 10-24-2026
 """
 
 from notes_app.note_model import Note
+from notes_app.note_storage import save_notes, load_notes
 
 
 class NoteManager:
@@ -24,3 +25,11 @@ class NoteManager:
     def list_notes(self):
         """Return the list of all notes."""
         return self.notes
+
+    def save(self, filename="notes.json"):
+        """Save all notes to a JSON file."""
+        return save_notes(self.notes, filename)
+
+    def load(self, filename="notes.json"):
+        """Replace the current notes with the ones saved in the file."""
+        self.notes = load_notes(filename)
